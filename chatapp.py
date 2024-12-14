@@ -9,8 +9,13 @@ from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 import pickle  # For saving/loading embeddings
 
-# Directly set the GROQ API Key
-groq_api_key = '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'
+# Fetch the GROQ API Key and Ollama API URL from environment variables
+groq_api_key = os.getenv('GROQ_API_KEY')
+ollama_api_url = os.getenv('OLLAMA_API_URL')
+
+# Ensure groq_api_key is available
+if not groq_api_key:
+    raise ValueError("GROQ_API_KEY environment variable is not set.")
 
 # Initialize the ChatGroq model
 llm = ChatGroq(groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
@@ -76,23 +81,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
