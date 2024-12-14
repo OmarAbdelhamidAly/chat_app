@@ -11,7 +11,7 @@ import pickle  # For saving/loading embeddings
 
 # Fetch the GROQ API Key and Ollama API URL from environment variables
 groq_api_key = os.getenv('GROQ_API_KEY')
-ollama_api_url = os.getenv('OLLAMA_API_URL')
+
 
 # Ensure groq_api_key is available
 if not groq_api_key:
